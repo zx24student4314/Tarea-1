@@ -1,8 +1,12 @@
 def divide(a, b):
-    """Divide a entre b usando división de coma flotante.
+    """Divide a entre b (división en coma flotante).
 
-    Levanta ValueError("División por cero") si b == 0.
+    Lanza ValueError("División por cero") si b es 0.
+    Lanza TypeError si los argumentos no son números.
     """
-    if b == 0:
-        raise ValueError("División por cero")
-    return a / b
+    try:
+        if b == 0:
+            raise ValueError("División por cero")
+        return a / b
+    except TypeError:
+        raise TypeError("Los argumentos deben ser números")
