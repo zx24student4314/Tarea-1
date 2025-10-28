@@ -1,12 +1,17 @@
-def divide(a, b):
-    """Divide a entre b (división en coma flotante).
+from __future__ import annotations
 
-    Lanza ValueError("División por cero") si b es 0.
-    Lanza TypeError si los argumentos no son números.
+"""Calculadora simple: función dividir."""
+
+from typing import Union
+
+Number = Union[int, float]
+
+def divide(a: Number, b: Number) -> float:
+    """Devuelve la división en coma flotante de a entre b.
+
+    Raises:
+        ValueError: si b == 0 con el mensaje "División por cero".
     """
-    try:
-        if b == 0:
-            raise ValueError("División por cero")
-        return a / b
-    except TypeError:
-        raise TypeError("Los argumentos deben ser números")
+    if b == 0:
+        raise ValueError("División por cero")
+    return a / b
